@@ -164,7 +164,11 @@ your-project/
 
 ### Launching Your Team
 
-Open Claude Code in your project folder and use the launch prompt from `orchestration.claude_code_agent_team.launch_prompt_template` in AgentSpec. Replace `[MODULE_NAME]` with whatever you're building first. Claude Code creates the team, spawns teammates, builds a task list, and starts coordinating.
+Open Claude Code in your project folder and paste this prompt (customize the module name):
+
+> Read agentspec.json for full project context and agent specifications. Create an agent team with three teammates: a coding agent (use Opus), a validation agent (use Sonnet), and a devil's advocate (use Opus). Use delegation mode — the lead should coordinate only, not implement. Start with [MODULE_NAME] from the modules list. The coding agent builds, the validation agent reviews for correctness and convention compliance, and the devil's advocate critiques design decisions. No module advances to 'stable' with unresolved critical or warning findings. Max 3 correction iterations before escalating to me.
+
+Claude Code creates the team, spawns teammates, builds a task list, and starts coordinating.
 
 ### Why You Don't Need Separate `.md` Files Per Agent
 
@@ -301,10 +305,10 @@ Code that compiles and passes tests can still be architecturally wrong, make bad
 
 ## License
 
-[Choose your license — MIT for open distribution, or a commercial license if selling]
+MIT License — free to use, modify, and distribute.
 
 ---
 
-## Support
+## Contributing
 
-[Your contact info / Discord / community link here]
+Found a gap? Have a suggestion? Open an issue or submit a PR. AgentSpec was built through iterative feedback and that process doesn't stop here.
