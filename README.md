@@ -90,7 +90,7 @@ This template eliminates those problems by giving the AI explicit constraints, v
 
 ### 1. Copy the template
 
-Download `AgentSpec_v3_2.json` and save it to your project root as `agentspec.json`.
+Use `agentspec.json` in your project root as the template file.
 
 ### 2. Populate it with AI
 
@@ -137,6 +137,33 @@ The persona shapes *how* the agent thinks, not just what it writes.
 
 ---
 
+## AgentSpec Wizard (CLI)
+
+This repo now includes a working wizard that generates both `agentspec.json` and `CLAUDE.md` from interactive prompts.
+
+### Run the wizard
+
+From the project root:
+
+```bash
+python3 -m agentspec_wizard.cli
+```
+
+### Output behavior
+
+- Writes `agentspec.json` and `CLAUDE.md`
+- Defaults to current directory
+- Refuses to overwrite existing `agentspec.json` unless `--force` is used
+
+### CLI options
+
+```bash
+python3 -m agentspec_wizard.cli --output-dir /path/to/project
+python3 -m agentspec_wizard.cli --output-dir . --force
+```
+
+---
+
 ## Using AgentSpec with Claude Code Agent Teams
 
 Agent teams are Claude Code's experimental feature for multi-agent collaboration. Unlike subagents (which work in isolation and report back), agent team members can talk to each other, share a task list, and coordinate automatically.
@@ -173,12 +200,6 @@ Claude Code creates the team, spawns teammates, builds a task list, and starts c
 ### Why You Don't Need Separate `.md` Files Per Agent
 
 Teammates auto-load `CLAUDE.md`, MCP servers, and skills from your project. The team lead creates teammates from your prompt using AgentSpec's agent definitions. No manual markdown files needed — AgentSpec is the single source that drives everything.
-
-### When to Use Agent Teams vs Single Agent
-
-Agent teams work best for coordination and sense-making — architecture discussions, interface contracts, risk identification, and devil's advocate critique. Use them when your project has clearly separable components where each teammate owns different files.
-
-Don't use agent teams for sequential work on the same files, simple scripts, or projects where one agent is doing all the writing. For those, run a single Claude Code session with agentspec.json loaded — you still get the governance without the overhead.
 
 ### Key Things to Know
 
