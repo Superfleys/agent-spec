@@ -174,6 +174,12 @@ Claude Code creates the team, spawns teammates, builds a task list, and starts c
 
 Teammates auto-load `CLAUDE.md`, MCP servers, and skills from your project. The team lead creates teammates from your prompt using AgentSpec's agent definitions. No manual markdown files needed — AgentSpec is the single source that drives everything.
 
+### When to Use Agent Teams vs Single Agent
+
+Agent teams work best for coordination and sense-making — architecture discussions, interface contracts, risk identification, and devil's advocate critique. Use them when your project has clearly separable components where each teammate owns different files.
+
+Don't use agent teams for sequential work on the same files, simple scripts, or projects where one agent is doing all the writing. For those, run a single Claude Code session with agentspec.json loaded — you still get the governance without the overhead.
+
 ### Key Things to Know
 
 - Use **delegation mode** (Shift+Tab) so the lead coordinates instead of coding
